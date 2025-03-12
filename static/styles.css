@@ -1,0 +1,133 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    max-width: 800px;
+    padding: 20px;
+}
+
+.card {
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
+    border: none;
+}
+
+.card-header {
+    background-color: #a18cef;
+    color: white;
+    border-radius: 12px 12px 0 0 !important;
+    padding: 15px 20px;
+    font-weight: 600;
+    border: none;
+    font-size: 1.1rem;
+}
+
+.card-body {
+    padding: 25px;
+}
+
+.btn-primary {
+    background-color: #a18cef;
+    border-color: #4361ee;
+    font-weight: 500;
+    transition: all 0.3s;
+    padding: 12px 24px;
+}
+
+.btn-primary:hover {
+    background-color: #3a56d4;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-outline-primary {
+    color: #4361ee;
+    border-color: #a18cef;
+    transition: all 0.3s;
+}
+
+.btn-outline-primary:hover {
+    background-color: #a18cef;
+    color: white;
+}
+
+.upload-btn {
+    min-width: 180px;
+    font-weight: 500;
+    color: #4361ee;
+    border-color: #4361ee;
+}
+
+.upload-btn:hover {
+    background-color: #a18cef;
+    color: white;
+}
+
+.form-label {
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.form-select, .form-control {
+    border-radius: 8px;
+    padding: 12px 15px;
+    border: 1px solid #ced4da;
+    font-size: 1rem;
+}
+
+.form-select:focus, .form-control:focus {
+    border-color: #4361ee;
+    box-shadow: 0 0 0 0.25rem rgba(67, 97, 238, 0.25);
+}
+
+.spinner-border {
+    margin-right: 8px;
+    color: #4361ee;
+}
+
+.result-card {
+    display: none;
+}
+
+.audio-player {
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 8px;
+}
+
+#uploadFeedback {
+    margin-top: 8px;
+    font-style: italic;
+    color: #6c757d;
+}
+
+#fileNameDisplay {
+    background-color: #ffffff;
+    cursor: default;
+}
+
+.text-container {
+    background-color: #f1f3f5;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    min-height: 100px;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #e9ecef;
+}
+
+h1 {
+    color: #333;
+    font-weight: 700;
+}
+
+h5 {
+    color: #4361ee;
+    font-weight: 600;
+    margin-bottom: 12px;
+}

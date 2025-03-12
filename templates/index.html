@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traductor de Audio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗣️</text></svg>">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Traductor de Audios</h1>
+
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-microphone me-2"></i> Traductor de archivos de audio
+            </div>
+            <div class="card-body">
+                <form id="translationForm" enctype="multipart/form-data">
+                    <div class="mb-4">
+                        <label for="audioFile" class="form-label fw-bold">Seleccionar archivo de audio</label>
+                        <div class="input-group mb-2">
+                            <button class="btn btn-outline-primary upload-btn" type="button" id="fileButton">
+                                <i class="fas fa-upload me-2"></i> Seleccionar archivo
+                            </button>
+                            <input type="text" class="form-control" id="fileNameDisplay" readonly placeholder="Ningún archivo seleccionado">
+                            <input type="file" class="d-none" id="audioFile" name="file" accept="audio/*" required>
+                        </div>
+                        <div id="uploadFeedback" class="small text-muted">Formatos soportados: mp3, wav, ogg, m4a</div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col-md-6 mb-3 mb-md-0">
+                            <label for="originalLanguage" class="form-label fw-bold">Idioma original</label>
+                            <select class="form-select" id="originalLanguage" name="original_language" required>
+                                <option value="">Selecciona un idioma</option>
+                                <option value="es-ES">Español</option>
+                                <option value="en-US">Inglés</option>
+                                <option value="fr-FR">Francés</option>
+                                <option value="de-DE">Alemán</option>
+                                <option value="it-IT">Italiano</option>
+                                <option value="pt-BR">Portugués</option>
+                                <option value="zh-CN">Chino</option>
+                                <option value="ja-JP">Japonés</option>
+                                <option value="ko-KR">Coreano</option>
+                                <option value="ru-RU">Ruso</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="targetLanguage" class="form-label fw-bold">Idioma final</label>
+                            <select class="form-select" id="targetLanguage" name="target_language" required>
+                                <option value="">Selecciona un idioma</option>
+                                <option value="es">Español</option>
+                                <option value="en">Inglés</option>
+                                <option value="fr">Francés</option>
+                                <option value="de">Alemán</option>
+                                <option value="it">Italiano</option>
+                                <option value="pt">Portugués</option>
+                                <option value="zh-Hans">Chino</option>
+                                <option value="ja">Japonés</option>
+                                <option value="ko">Coreano</option>
+                                <option value="ru">Ruso</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">
+                            <i class="fas fa-language me-2"></i> Traducir Audio
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="card result-card" id="resultCard">
+            <div class="card-header">
+                <i class="fas fa-exchange-alt me-2"></i> Traducción
+            </div>
+            <div class="card-body">
+                <div class="mb-4">
+                    <h5><i class="fas fa-headphones me-2"></i> Audio traducido</h5>
+                    <audio controls class="audio-player" id="translatedAudio">
+                        Tu navegador no soporta el elemento de audio
+                    </audio>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <h5><i class="fas fa-align-left me-2"></i> Texto original</h5>
+                        <div class="text-container" id="originalText"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <h5><i class="fas fa-align-right me-2"></i> Texto traducido</h5>
+                        <div class="text-container" id="translatedText"></div>
+                    </div>
+                </div>
+
+                <div class="mt-4 d-grid">
+                    <button class="btn btn-outline-primary" id="newTranslationBtn">
+                        <i class="fas fa-plus-circle me-2"></i> Nueva Traducción
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de carga -->
+    <div class="modal fade" id="loadingModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center p-5">
+                    <div class="spinner-border text-primary mb-3" role="status">
+                        <span class="visually-hidden">Cargando...</span>
+                    </div>
+                    <h5 class="mb-0">Procesando la traducción...</h5>
+                    <p class="mt-2 text-muted">Esto puede tardar unos momentos.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>
