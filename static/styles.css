@@ -131,3 +131,44 @@ h5 {
     font-weight: 600;
     margin-bottom: 12px;
 }
+
+/* Añade estos estilos al archivo CSS existente */
+.record-btn {
+    min-width: 150px;
+    font-weight: 500;
+    color: #dc3545;
+    border-color: #dc3545;
+}
+
+.record-btn:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+.record-btn.recording {
+    background-color: #dc3545;
+    color: white;
+    animation: pulse 1.5s infinite;
+}
+
+.recording-indicator {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+}
+
+.pulse {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}

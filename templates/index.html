@@ -25,10 +25,38 @@
                             <button class="btn btn-outline-primary upload-btn" type="button" id="fileButton">
                                 <i class="fas fa-upload me-2"></i> Seleccionar archivo
                             </button>
+                            <button class="btn btn-outline-danger record-btn" type="button" id="recordButton">
+                                <i class="fas fa-microphone me-2"></i> Grabar audio
+                            </button>
                             <input type="text" class="form-control" id="fileNameDisplay" readonly placeholder="Ningún archivo seleccionado">
                             <input type="file" class="d-none" id="audioFile" name="file" accept="audio/*" required>
                         </div>
-                        <div id="uploadFeedback" class="small text-muted">Formatos soportados: mp3, wav, ogg, m4a</div>
+                        <div id="uploadFeedback" class="small text-muted">Formatos soportados: mp3, wav, ogg</div>
+
+                        <!-- Sección para grabación de audio -->
+                        <div id="recordingControls" style="display: none;" class="mt-3">
+                            <div class="d-flex align-items-center">
+                                <div class="recording-indicator me-3">
+                                    <i class="fas fa-circle text-danger pulse"></i>
+                                    <span class="ms-2">Grabando...</span>
+                                    <span id="recordingTime" class="ms-2">00:00</span>
+                                </div>
+                                <button class="btn btn-sm btn-danger" id="stopRecordingBtn">
+                                    <i class="fas fa-stop me-1"></i> Detener
+                                </button>
+                            </div>
+                            <div class="mt-3" id="recordingPreview" style="display: none;">
+                                <audio controls class="audio-player" id="recordedAudio"></audio>
+                                <div class="mt-2">
+                                    <button class="btn btn-sm btn-success me-2" id="useRecordingBtn">
+                                        <i class="fas fa-check me-1"></i> Usar esta grabación
+                                    </button>
+                                    <button class="btn btn-sm btn-secondary" id="discardRecordingBtn">
+                                        <i class="fas fa-trash me-1"></i> Descartar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="row mb-4">
@@ -122,6 +150,8 @@
         </div>
     </div>
 
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/recorderjs/0.1.0/recorder.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="/static/script.js"></script>
 </body>
